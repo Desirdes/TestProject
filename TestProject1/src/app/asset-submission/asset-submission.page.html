@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Asset
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label >Category:</ion-label>
+    <ion-select class="custom-options" [(ngModel)]="catVal">
+      <ion-select-option value="Technology">Technology</ion-select-option>
+      <ion-select-option value="Office Supplies">Office Supplies</ion-select-option>
+      <ion-select-option value="Furniture">Furniture</ion-select-option>
+      <ion-select-option value="Vehicle">Vehicle</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Asset Name:</ion-label>
+    <ion-input placeholder="Enter a Name" [(ngModel)]="nameVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Date Acquired:</ion-label>
+    <ion-datetime displayFormat="MM DD YY" placeholder="MM DD YY" [(ngModel)]="dateValBase"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tags:</ion-label>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 1" [(ngModel)]="tagVals[0]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 2" [(ngModel)]="tagVals[1]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 3" [(ngModel)]="tagVals[2]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 4" [(ngModel)]="tagVals[3]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 5" [(ngModel)]="tagVals[4]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 6" [(ngModel)]="tagVals[5]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 7" [(ngModel)]="tagVals[6]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 8" [(ngModel)]="tagVals[7]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 9" [(ngModel)]="tagVals[8]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 10" [(ngModel)]="tagVals[9]"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <div *ngIf="!nullCheck">
+    <ion-button expand="full" (click)="submitAsset(catVal, nameVal, dateValBase.toString().split('T')[0], tagVals)">
+      Submit New Asset
+    </ion-button>
+  </div>
+  <div *ngIf="nullCheck">
+    <ion-button expand="full" (click)="submitFirstAsset(catVal, nameVal, dateValBase.toString().split('T')[0], tagVals)">
+      Submit First Asset
+    </ion-button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Asset</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-label class="ion-text-left">Category: {{selCat}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="ion-text-left">Name: {{selName}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="ion-text-left">Date Acquired: {{selDate}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="ion-text-left ion-text-wrap">Tags: </ion-label>
+          <ion-label class="ion-text-left ion-text-wrap" *ngFor="let y of selTags"> [{{y}}] </ion-label>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label >New Category:</ion-label>
+    <ion-select class="custom-options" [(ngModel)]="catVal">
+      <ion-select-option value="Technology">Technology</ion-select-option>
+      <ion-select-option value="Office Supplies">Office Supplies</ion-select-option>
+      <ion-select-option value="Furniture">Furniture</ion-select-option>
+      <ion-select-option value="Vehicle">Vehicle</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>New Name:</ion-label>
+    <ion-input placeholder="Enter a Name" [(ngModel)]="nameVal"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>New Date:</ion-label>
+    <ion-datetime displayFormat="MM DD YY" placeholder="MM DD YY" [(ngModel)]="dateValBase"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-grid>
+      <ion-label>New Tags:</ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 1" [(ngModel)]="tagVals[0]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 2" [(ngModel)]="tagVals[1]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 3" [(ngModel)]="tagVals[2]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 4" [(ngModel)]="tagVals[3]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 5" [(ngModel)]="tagVals[4]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 6" [(ngModel)]="tagVals[5]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 7" [(ngModel)]="tagVals[6]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 8" [(ngModel)]="tagVals[7]"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Tag 9" [(ngModel)]="tagVals[8]"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Tag 10" [(ngModel)]="tagVals[9]"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-button expand="full" (click)="editSelAsset(catVal, nameVal, dateValBase.toString().split('T')[0], tagVals)">
+    Edit Asset
+  </ion-button>
+  <ion-button expand="full" color="danger" (click)="goHome()">
+    Return Without Edit
+  </ion-button>
+
+</ion-content>

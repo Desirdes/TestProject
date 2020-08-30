@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Assets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="!nullCheck">
+    <ion-list *ngFor="let x of assetList.assets">
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-label class="ion-text-left">Category: {{x[0].category}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="ion-text-left">Name: {{x[1].name}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="ion-text-left">Date Acquired: {{x[2].date}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="ion-text-left ion-text-wrap">Tags: </ion-label>
+              <ion-label class="ion-text-left ion-text-wrap" *ngFor="let y of x[3].tags"> [{{y}}] </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="nullCheck">
+    <ion-item>
+      <ion-label>
+        No Assets Currently Available
+      </ion-label>
+    </ion-item>
+  </div>
+
+</ion-content>

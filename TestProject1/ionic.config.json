@@ -1,0 +1,9 @@
+{
+  "name": "TestProject1",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "34a56389"
+}
